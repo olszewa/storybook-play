@@ -1,0 +1,27 @@
+import { Meta, Canvas, Preview, Description, Props, Story, ArgsTable, Source } from "@storybook/addon-docs/blocks";
+
+import MyInput from './MyInput';
+
+<Meta
+    title="Introduction/Components/Input"
+    component={MyInput}
+    argTypes={{
+        color: { control: { type: 'color' }}
+    }}
+/>
+
+### Nothing more than Markdown
+
+export const Template = (arg, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    components: { MyInput },
+    template: '<MyInput @onInput="onInput" v-bind="$props" />',
+})
+
+<Canvas>
+    <Story
+        name="Default"
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
